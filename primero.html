@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Animaciones</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <i class="far fa-bell"></i>
 
 <style>
 
@@ -26,13 +25,31 @@
     }
 
 .notification {
-    color: red;
+    color: white;
+    width: 50px;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
-.notification:before {
+.notification::before {
     content: "\f0f3";
     font-family: "fontAwesome";
     display: block;
+}
+
+.notification::after{
+    content: "1";
+    font-weight: bold;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    background: #ff4600;
+    border-radius: 50%;
 }
 
 .btn {
@@ -69,9 +86,9 @@
 <body>
 <header class="header">
     <div class="notification"></div>
+    <button class="btn primary">Enviar Notificaciones</button>
 </header>
 
-<button class="btn primary">Enviar Notificaciones</button>
 
 <footer></footer>
    
