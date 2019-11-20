@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Animaciones</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <style>
 
     body {
@@ -40,7 +40,6 @@
 }
 
 .notification::after{
-    content: "1";
     font-weight: bold;
     font-size: 11px;
     display: flex;
@@ -53,8 +52,13 @@
     position: absolute;
     top: 5px;
     right: 5px;
+    content: attr(data-count);
+    opacity: 0;
 }
 
+.notification.show-count:after {
+    opacity: 1;
+}
 .btn {
     text-align: center;
     padding: .6em .8em .8em;
@@ -88,8 +92,8 @@
 
 <body>
 <header class="header">
-    <button class="btn primary">Enviar Notificaciones</button>
-    <div class="notification"></div>
+    <button class="btn primary" id="button">Enviar Notificaciones</button>
+    <div class="notification" id="notification"></div>
 </header>
 
 
@@ -97,7 +101,12 @@
    
 <script>
 
-console.log("Hola!");
+const $button = document.getElementById("button");
+const $bell = document.getElementById("notification")
+
+$button.addEventListener("click", () => {
+ $bell.classList.add("show-count");
+} )
 </script>
 </body>
 </html>
