@@ -31,12 +31,31 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    animation-name: bell;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    
+}
 
+@keyframes bell {
+    0% {
+     transform:rotate(35deg);
+    }
+
+    35% {
+        transform: rotate(-35deg);
+    }
+    100%{
+    transform: rotate(0deg);
+    }
 }
 .notification::before {
     content: "\f0f3";
     font-family: "fontAwesome";
     display: block;
+    animation-name: bell;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 .notification::after{
@@ -54,10 +73,14 @@
     right: 5px;
     content: attr(data-count);
     opacity: 0;
+    transition: 3s;
+    transform: scale(.5);
+    will-change: opacity, transform;
 }
 
 .notification.show-count:after {
     opacity: 1;
+    transform: scale(1);
 }
 .btn {
     text-align: center;
@@ -105,8 +128,10 @@ const $button = document.getElementById("button");
 const $bell = document.getElementById("notification")
 
 $button.addEventListener("click", () => {
+    const count = Number($bell.getAttribute("data-count")) || 0;
+    $bell.setAttribute("data-count", count + 1 );
  $bell.classList.add("show-count");
-} )
+} );
 </script>
 </body>
 </html>
