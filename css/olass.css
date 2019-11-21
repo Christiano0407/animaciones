@@ -1,11 +1,20 @@
+.container {
+    height: 500px;
+    background: #0f9bf6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .circulo {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background: rgba(0, 0, 0, .5);
     position: absolute;
-    animation: wave 5s infinite alternate;
+    animation: wave 5s infinite;
 }
+
 
 .circulo.a {
     animation-delay: 1s;
