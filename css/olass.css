@@ -1,0 +1,34 @@
+.circulo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    animation: wave 5s infinite alternate;
+}
+
+.circulo.a {
+    animation-delay: 1s;
+}
+
+.circulo.b {
+animation-delay: 2s;
+}
+
+.circulo.c {
+animation-delay: 3s;
+}
+
+.container {
+    position: absolute;
+}
+
+@keyframes wave {
+    0% {
+     transform: translateX(0) translateY(0);
+    }
+
+    100% {
+     transform: translateX(200px) translateY(100px);
+    }
+}
